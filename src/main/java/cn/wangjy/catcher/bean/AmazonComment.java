@@ -12,6 +12,9 @@ public class AmazonComment {
     private String author;
     private String starts;
     private String date;
+    private String color;
+    private String size;
+    private String verified;
 
     public String getComment() {
         return comment;
@@ -43,5 +46,29 @@ public class AmazonComment {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 }
