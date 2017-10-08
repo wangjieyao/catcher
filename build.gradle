@@ -6,7 +6,19 @@ apply plugin: 'java'
 sourceCompatibility = 1.5
 
 repositories {
+    mavenLocal()
     mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "src/main/java"
+        }
+        resources {
+            srcDir "src/main/resources"
+        }
+    }
 }
 
 dependencies {
@@ -17,4 +29,9 @@ dependencies {
     compile 'org.apache.poi:poi-ooxml:3.9'
     compile 'org.apache.poi:poi-ooxml-schemas:3.9'
     compile 'org.apache.poi:poi:3.9'
+    compile 'com.mob:demo-jedis:1.0.0'
+    compile 'redis.clients:jedis:2.7.2'
+//    compile 'log4j:log4j:1.2.8'
+    compile 'cn.sharesdk:lamfire:2.1.4'
+
 }
