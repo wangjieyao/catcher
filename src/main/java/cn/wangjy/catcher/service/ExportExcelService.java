@@ -1,14 +1,14 @@
 package cn.wangjy.catcher.service;
 
 import cn.wangjy.catcher.bean.AmazonComment;
-import com.tcl.xbase.bean.monitor.MonitorCountInfoByDateTotal;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +22,7 @@ public class ExportExcelService {
     /**
      * 页面导出默认表头
      */
-    private static final String[] HEADERS = {"星星", "用户名", "时间", "评论"};
+    private static final String[] HEADERS = {"星星", "用户名", "时间", "颜色", "尺寸", "是否确认", "评论"};
 
 
     /**
@@ -49,7 +49,6 @@ public class ExportExcelService {
             e.printStackTrace();
         }
     }
-
 
 
     /**
@@ -167,6 +166,18 @@ public class ExportExcelService {
                     cell.setCellValue(text);
                 }
                 if (column == 3) {
+                    HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getColor());
+                    cell.setCellValue(text);
+                }
+                if (column == 4) {
+                    HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getSize());
+                    cell.setCellValue(text);
+                }
+                if (column == 5) {
+                    HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getVerified());
+                    cell.setCellValue(text);
+                }
+                if (column == 6) {
                     HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getComment());
                     cell.setCellValue(text);
                 }
@@ -176,28 +187,32 @@ public class ExportExcelService {
     }
 
 
-
     public static void main(String[] args) {
-        /*File fileTmp = new File("D:/aa.xls");
+        File fileTmp = new File("aa.xls");
         FileOutputStream fileOutStream = null;
-        List<MonitorCountInfoByDate> list = new ArrayList<>();
-        MonitorCountInfoByDate date = new MonitorCountInfoByDate();
-        date.setBeforeCount(13);
-        date.setReturnCount(13);
-        list.add(date);
-        list.add(date);
-        list.add(date);
-        list.add(date);
+        List<AmazonComment> list = new ArrayList<>();
+        AmazonComment data = new AmazonComment();
+        data.setAuthor("wangjy");
+        data.setComment("test");
+        data.setStarts("3");
+        data.setDate("2017");
+        data.setSize("234");
+        data.setColor("red");
+        data.setVerified("verified");
+
+        list.add(data);
+        list.add(data);
+        list.add(data);
+        list.add(data);
         try {
             fileTmp.createNewFile();
             fileOutStream = new FileOutputStream(fileTmp);
-            String[] headers = {"总数", "192.168.1.2", "192.168.1.3"};
-            String[] headers1 = {"总数", "192.168.1.2"};
+//            String[] headers = {"总数", "192.168.1.2", "192.168.1.3"};
+//            String[] headers1 = {"总数", "192.168.1.2"};
 
             exportExcel("2017-10-25", fileOutStream, list);
         } catch (IOException e) {
             e.printStackTrace();
         }
-*/
     }
 }

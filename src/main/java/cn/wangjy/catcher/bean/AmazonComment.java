@@ -8,10 +8,14 @@ package cn.wangjy.catcher.bean;
  */
 public class AmazonComment {
 
+    private String id;
     private String comment;
     private String author;
     private String starts;
     private String date;
+    private String color;
+    private String size;
+    private String verified;
 
     public String getComment() {
         return comment;
@@ -43,5 +47,51 @@ public class AmazonComment {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "AmazonComment{" +
+                "comment='" + comment + '\'' +
+                ", author='" + author + '\'' +
+                ", starts='" + starts + '\'' +
+                ", date='" + date + '\'' +
+                ", color='" + color + '\'' +
+                ", size='" + size + '\'' +
+                ", verified='" + verified + '\'' +
+                '}';
+    }
+
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 }

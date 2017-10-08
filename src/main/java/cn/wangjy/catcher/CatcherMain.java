@@ -10,9 +10,11 @@ import cn.wangjy.catcher.service.CatcherService;
  */
 public class CatcherMain {
     public static void main(String[] args) {
-        String url = "https://www.amazon.com/Nexlux-Wireless-Controlled-150leds-Waterproof/product-reviews/B072DXFKRH" +
-                "/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2";
 
+//        String url = "https://www.amazon.com/Nexlux-Wireless-Controlled-150leds-Waterproof/product-reviews/B072DXFKRH" +
+//                "/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2";
+//        String url = "https://www.amazon.com/product-reviews/B00O4IPV9O?pageNumber=4";
+        String url = "https://www.amazon.com/product-reviews/B0196DRB12?pageNumber=1";
         CatcherService service = new CatcherService();
         service.getAmazonComment(url);
 //        url = url.substring(0,url.lastIndexOf("=")+1);
