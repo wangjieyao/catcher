@@ -12,7 +12,13 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+<<<<<<< HEAD
 import java.io.*;
+=======
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,14 +44,20 @@ public class CatcherService {
     }
 
     public void getAmazonComment(String url ){
+<<<<<<< HEAD
         List<String> urls = getAllPageUrls(url);
         List<AmazonComment> comments = new ArrayList<>();
+=======
+        List<String> urls = getMoreUrl(url);
+        List<AmazonComment> list = new ArrayList<>();
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
         for (String u : urls){
             Document doc = fetchUrl(u,GlobalVar.CONNECT_TIMEOUT);
             if (doc == null){
                 LOG.info("Document is null,url:{}",url);
                 return;
             }
+<<<<<<< HEAD
             List<AmazonComment> data = getComment(doc);
             comments.addAll(data);
         }
@@ -67,6 +79,12 @@ public class CatcherService {
             redisCli.zincrby(sizeKey,1.0,comment.getSize());
         }
     }
+=======
+            List<AmazonComment> comment = getComment(doc);
+            list.addAll(comment);
+        }
+        exportExcel(list);
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
 
 
     private Object exportExcel(String fileName,List<AmazonComment> list) {
@@ -111,6 +129,7 @@ public class CatcherService {
         return urls;
     }
 
+<<<<<<< HEAD
     public List<String> getUrlsByIds(List<String> ids){
         if (ids == null || ids.isEmpty()){
             return null;
@@ -121,6 +140,29 @@ public class CatcherService {
             list.add(url);
         }
         return list;
+=======
+    private void exportExcel(List<AmazonComment> list){
+        String fileName = "B0196DRB12.xls";
+        File fileTmp = new File(fileName);
+        FileOutputStream fileOutStream = null;
+        try {
+            fileTmp.createNewFile();
+            fileOutStream = new FileOutputStream(fileTmp);
+
+            if (null != list && list.size() > 0) {
+                ExportExcelService.exportExcel("B0196DRB12", fileOutStream, list);
+            }
+        } catch (IOException e) {
+            LOG.error("export excel create temp file exception. {}", e);
+        } finally {
+            try {
+                if (null != fileOutStream)
+                    fileOutStream.close();
+            } catch (IOException e) {
+                fileOutStream = null;
+            }
+        }
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
     }
 
     private int getMaxPageNums(Document document){
@@ -154,8 +196,13 @@ public class CatcherService {
             c.setColor(color);
             c.setSize(size);
             list.add(c);
+<<<<<<< HEAD
             System.out.println(c.toString());
 
+=======
+            System.out.println(color+"  ::  "+ size+"  ::  "+verified+"  ::  "+starts+"  ::  "+author+"  ::  "+date+"" +
+                    "  ::  " + ""+comment);
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
         }
 
         return list;
@@ -182,6 +229,7 @@ public class CatcherService {
         return doc;
     }
 
+<<<<<<< HEAD
 
     private List<String> getAllIds(String fileName){
         BufferedReader br = null;
@@ -221,4 +269,28 @@ public class CatcherService {
 //        RedisCli redisCli = factory.getRedisCli();
 //        redisCli.zadd("key",1,"red");
     }
+=======
+    public static void main(String[] args) {
+//        String url = "https://www.amazon.com/product-reviews/B06XB97V85/ref=cm_cr_getr_d_paging_btm_2?ie=UTF8&reviewerType=all_reviews&sortBy=recent&pageNumber=2";
+//        CatcherService service  =new CatcherService();
+//        Document doc = service.fetchUrl(url,GlobalVar.CONNECT_TIMEOUT);
+//        if (doc == null){
+//            System.out.println("doc is empty");
+//        }
+//        List<AmazonComment> comment = service.getComment(doc);
+//        service.exportExcel(comment);
+
+        String tmp = "Size: iPad Air 2|Color: Brown";
+//        int index = tmp.indexOf("|");
+        String size = tmp.substring(tmp.indexOf("Size:")+5,tmp.indexOf("|"));
+        String color = tmp.substring(tmp.indexOf("Color:")+6,tmp.length());
+        System.out.println(size);
+        System.out.println(color);
+//        String start = "2.0 out of 5 stars";
+//        start = start.substring(0,start.indexOf(" "));
+//        System.out.println(start);
+
+    }
+
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
 }

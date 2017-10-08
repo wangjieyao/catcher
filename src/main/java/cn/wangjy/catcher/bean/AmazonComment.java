@@ -61,6 +61,7 @@ public class AmazonComment {
         return size;
     }
 
+<<<<<<< HEAD
     public String getId() {
         return id;
     }
@@ -83,6 +84,8 @@ public class AmazonComment {
     }
 
 
+=======
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
     public void setSize(String size) {
         this.size = size;
     }

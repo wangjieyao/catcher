@@ -10,6 +10,12 @@ import cn.wangjy.catcher.service.CatcherService;
  */
 public class CatcherMain {
     public static void main(String[] args) {
+<<<<<<< HEAD
+=======
+//        String url = "https://www.amazon.com/Nexlux-Wireless-Controlled-150leds-Waterproof/product-reviews/B072DXFKRH" +
+//                "/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2";
+        String url = "https://www.amazon.com/product-reviews/B06XB97V85/ref=cm_cr_getr_d_paging_btm_2?ie=UTF8&reviewerType=all_reviews&sortBy=recent&pageNumber=2";
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
 
 //        String url = "https://www.amazon.com/Nexlux-Wireless-Controlled-150leds-Waterproof/product-reviews/B072DXFKRH" +
 //                "/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2";

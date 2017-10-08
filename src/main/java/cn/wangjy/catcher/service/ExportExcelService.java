@@ -22,7 +22,11 @@ public class ExportExcelService {
     /**
      * 页面导出默认表头
      */
+<<<<<<< HEAD
     private static final String[] HEADERS = {"星星", "用户名", "时间", "颜色", "尺寸", "是否确认", "评论"};
+=======
+    private static final String[] HEADERS = {"星星", "用户名", "时间", "尺寸", "颜色", "确认购买", "评论"};
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
 
 
     /**
@@ -166,11 +170,19 @@ public class ExportExcelService {
                     cell.setCellValue(text);
                 }
                 if (column == 3) {
+<<<<<<< HEAD
                     HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getColor());
                     cell.setCellValue(text);
                 }
                 if (column == 4) {
                     HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getSize());
+=======
+                    HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getSize());
+                    cell.setCellValue(text);
+                }
+                if (column == 4) {
+                    HSSFRichTextString text = new HSSFRichTextString(dataList.get(j).getColor());
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
                     cell.setCellValue(text);
                 }
                 if (column == 5) {
@@ -191,6 +203,7 @@ public class ExportExcelService {
         File fileTmp = new File("aa.xls");
         FileOutputStream fileOutStream = null;
         List<AmazonComment> list = new ArrayList<>();
+<<<<<<< HEAD
         AmazonComment data = new AmazonComment();
         data.setAuthor("wangjy");
         data.setComment("test");
@@ -204,6 +217,15 @@ public class ExportExcelService {
         list.add(data);
         list.add(data);
         list.add(data);
+=======
+        AmazonComment date = new AmazonComment();
+        date.setStarts("start");
+        date.setAuthor("author");
+        list.add(date);
+        list.add(date);
+        list.add(date);
+        list.add(date);
+>>>>>>> c6927df8cd7f016b530eb5f65601f35725760f4a
         try {
             fileTmp.createNewFile();
             fileOutStream = new FileOutputStream(fileTmp);
